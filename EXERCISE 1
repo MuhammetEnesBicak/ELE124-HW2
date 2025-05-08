@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+
+float aRandomNumber; 
+
+for(int i=0;i<50;i++){
+
+aRandomNumber= rand()%2000; //Generates a random number [1,2000].
+printf("Rand Modulo 2000 gives %.2f \n",aRandomNumber); 
+// Randomly generated 0-2000 number has printed out.
+aRandomNumber/=100;  // Divide generated num. by 20 for being float in the range of 0-20. 
+printf("We divide it by 100 to get %dth random number : %.2f \n\n",i+1,aRandomNumber);
+//Order of the number and its value printed out as desired.
+}
+system("pause");	
+}
