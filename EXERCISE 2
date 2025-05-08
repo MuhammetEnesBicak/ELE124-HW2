@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>  //math.h library has included to use floor func.
+
+void Hunerler(float itemprice, float *donationTotal, float *profitTotal); 
+
+int main(void){
+
+float random_price,donation,profit; //variables declared
+float *donationTotal = &donation; //pointers declared
+float *profitTotal= &profit; //pointers declared
+
+for(int i=0;i<50;i++){
+
+random_price= rand()%2000; //Generates a random number [1,2000].
+random_price/=100;  // Divide generated num. by 20 for being float in the range of 0-20. 
+printf("%dth item is $%.2f \n",i+1,random_price);
+Hunerler(random_price, donationTotal, profitTotal);
+//Order of the number and its value printed out.
+}
+printf("--END OF THE DAY--\nDonation is $%.2f\n",donation);
+printf("Profit is $%.2f\n",profit); //printing out the total donation & profit.
+    return 0;
+}
+
+void Hunerler(float itemprice, float *donationTotal, float *profitTotal){	
+float a; //declaring a temporary variable
+
+a=itemprice-floor(itemprice); //finding the fractional part
+*donationTotal+=a;	//updating total donation
+*profitTotal+=(int)itemprice; //finding the integer part and updating total profit
+}
